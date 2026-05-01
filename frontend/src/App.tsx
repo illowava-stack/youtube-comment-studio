@@ -98,7 +98,7 @@ function App() {
       
       if (data.type === 'complete') {
         setStatus('completed');
-                if (data.images) {
+        if (data.images) {
           const newImages = data.images;
           setImages(prev => [...prev, ...newImages]);
           const newIds = newImages.map(img => {
@@ -107,7 +107,6 @@ function App() {
           }).filter(id => id !== -1);
           setCurrentBatchIds(prev => [...prev, ...newIds]);
         }
-}
         eventSource.close();
       } else if (data.type === 'error') {
         setStatus('error');
