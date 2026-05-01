@@ -98,14 +98,16 @@ function App() {
       
       if (data.type === 'complete') {
         setStatus('completed');
-        if (data.images) {
-          setImages(prev => [...prev, ...data.images]);
-          const newIds = data.images.map(img => {
+                if (data.images) {
+          const newImages = data.images;
+          setImages(prev => [...prev, ...newImages]);
+          const newIds = newImages.map(img => {
             const match = img.filename.match(/_(\d+)\.png$/);
             return match ? parseInt(match[1]) : -1;
           }).filter(id => id !== -1);
           setCurrentBatchIds(prev => [...prev, ...newIds]);
         }
+}
         eventSource.close();
       } else if (data.type === 'error') {
         setStatus('error');
