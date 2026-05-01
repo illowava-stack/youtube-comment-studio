@@ -9,15 +9,6 @@ RUN npm run build
 # ---- Stage 2: Build Backend & Serve ----
 FROM python:3.11-slim
 
-# Install system dependencies required for Playwright
-RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    libgconf-2-4 \
-    libxss1 \
-    libnss3 \
-    libasound2 \
-    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
