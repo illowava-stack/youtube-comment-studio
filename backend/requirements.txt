@@ -4,3 +4,5 @@ playwright
 google-genai
 python-dotenv
 pydantic
+sse-starlette
+Pillow
